@@ -23,8 +23,11 @@ public:
 
         
     }
-    void reversePreOrder(TreeNode* root,int level,vector<int>ans){
+    void reversePreOrder(TreeNode* root,int level,vector<int>&ans){
+        //pass by reference is a must
+
         if (root==NULL)return;
+        //NULL nullptr both work
         //if (root->val==ans.size())ans.push_back(root->val);
         if (level==ans.size())ans.push_back(root->val);
         reversePreOrder(root->right,level+1,ans);
