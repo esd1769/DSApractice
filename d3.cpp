@@ -1,3 +1,6 @@
+//linkedlist===just visualize
+
+
 /**
  * Definition for singly-linked list.
  * struct ListNode {
