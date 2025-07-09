@@ -1,13 +1,10 @@
-public class ass {
-    public static void main(String[] args){
-        int a=2;
-        int b=5;
-        int c =8;
-        int d =a+b*c/a+b;
-        // Note: Without parentheses, it's interpreted as: ((a + ((b * c) / a)) + b)
+public class ReverseLastTwoDigits {
+    public static void main(String[] args) {
+        int studentId = 23221454;
+        int lastTwo = studentId % 100;
+        int digit1 = lastTwo % 10;        // Rightmost
+        int digit2 = lastTwo / 10;        // Second last
 
-        System.out.println("Value of d: "+d); // Should be 27
+        System.out.println("Reversed last two digits: " + digit1 + ", " + digit2);
     }
 }
-
-
