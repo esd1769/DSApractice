@@ -1,19 +1,17 @@
-public class ass5{
-    public static void main(String[] args){
-        double a=4.5;
-        double b=9.5;
-        double c=Math.sqrt(a *a+b*b);
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+        node->val=node->next->val;
+        node->next=node->next->next;
 
-        double sinA =a/c;
-        double cosA= b/c;
-        double sinB =b/c;
-        double cosB = a/c;
-
-        System.out.println("Sin A = "+sinA);
-        System.out.println("Cos A = "+cosA);
-        System.out.println("Sin B = "+sinB);
-        System.out.println("Cos B = "+cosB);
+        
     }
-}
-    
-
+};
