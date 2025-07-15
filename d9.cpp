@@ -13,19 +13,21 @@
  */
 class Solution {
 private:
-    bool isBST(TreeNode* root,int low,int high){
+    bool isBST(TreeNode* root,long long low,long long high){
+        //[2147483647]ilow,high long long
          if (root==NULL)return true;
          //for[2,2,2]-not bst
-        if (root->left!=NULL&&root->val==root->left->val) return false;
-        if (root->right!=NULL&&root->val==root->right->val)return false;
-       
-        if(!(root->val>=low&&root->val<=high))return false;
+        //if (root->left!=NULL&&root->val==root->left->val) return false;
+        //if (root->right!=NULL&&root->val==root->right->val)return false;
+        //orrrrrrrrrrrrrrrrrrrrrrr
+        if(!(root->val>low&&root->val<high))return false;
+      //if(!(root->val>=low&&root->val<=high))return false;-error
         
         return isBST(root->left,low,root->val)&& isBST(root->right,root->val,high);
     }
 public:
     bool isValidBST(TreeNode* root) {
-        return isBST(root,INT_MIN,INT_MAX);
+        return isBST(root, LLONG_MIN, LLONG_MAX);
         
     }
 };
