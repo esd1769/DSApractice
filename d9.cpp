@@ -1,0 +1,1 @@
+//inorder of any binary search tree-bst -always in sorted order
