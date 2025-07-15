@@ -13,8 +13,15 @@
  */
 class Solution {
 private:
-    bool isBST(TreeNode* root,int low,int range){
-        if (root==NULL)return true;
+    bool isBST(TreeNode* root,int low,int high){
+         if (root==NULL)return true;
+         //for[2,2,2]-not bst
+        if (root->left!=NULL&&root->val==root->left->val) return false;
+        if (root->right!=NULL&&root->val==root->right->val)return false;
+       
+        if(!(root->val>=low&&root->val<=high))return false;
+        
+        return isBST(root->left,low,root->val)&& isBST(root->right,root->val,high);
     }
 public:
     bool isValidBST(TreeNode* root) {
