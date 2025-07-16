@@ -1,5 +1,7 @@
 //inorder of any binary search tree-bst -always in sorted order
 //k th largest element=n-k smallest element
+ //[2147483647]ilow,high long long---------LLONG_MIN, LLONG_MAX;
+
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
