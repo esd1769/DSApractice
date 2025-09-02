@@ -1,0 +1,170 @@
+//task1
+import java.util.Scanner;
+
+public class h1 {
+  public static void main(String[] args){
+    Scanner in= new Scanner(System.in);
+    String s= in.nextLine();
+
+    int v0 =0 , c0 =0 ;
+    for (int i=0;i<s.length();i++){
+      char ch =s.charAt(i);
+      if ((ch>='A'&&ch<='Z')||(ch>='a'&&ch<='z')){
+        char x = ch;
+if (ch >= 'A'&& ch <='Z'){
+    x =(char)(ch +32);
+}
+
+        if (x=='a'||x=='e'||x=='i'||x=='o'||x=='u')v0++;
+        else c0++;
+      }
+    
+
+  }
+      if(v0>0 && c0>0 &&v0%3==0 &&c0%5==0)
+          System.out.println("Aaarr! Me Plunder!!");
+      else
+          System.out.println("Blimey! No Plunder!!");
+}
+}
+
+
+//task2
+import java.util.Scanner;
+
+public class h2 {
+  public static void main(String[] args){
+    Scanner in= new Scanner(System.in);
+    String a =in.nextLine();
+    String b= in.nextLine();
+
+    String res= "";
+
+
+    
+    for (int i=0;i<a.length();i++){
+      char ch =a.charAt(i);
+      boolean found =false;
+      for (int j=0;j<b.length(); j++){
+        if (ch==b.charAt(j)){
+          found =true;
+          break;
+        }
+      }
+      if(!found){
+
+        if(ch>= 'a'&& ch<= 'z'){
+          res += (char)(ch-32);
+        } else{
+          res+= ch;
+        }
+      }
+    }
+
+    
+
+    for (int i=0; i<b.length(); i++){
+      char ch = b.charAt(i);
+      boolean found = false;
+      for (int j=0; j<a.length(); j++){
+        if (ch == a.charAt(j)){
+          found = true;
+          break;
+        }
+      }
+      if (!found){
+        if (ch >= 'a'&& ch <='z'){
+          res +=(char)(ch - 32);
+        } else{
+          res +=ch;
+        }
+      }
+    }
+
+    System.out.println(res);
+  }
+}
+//task3
+import java.util.Scanner;
+
+public class h3{
+  public static void main(String[] args){
+    Scanner in =new Scanner(System.in);
+    String s= in.nextLine();
+
+    String an="";
+    boolean lo=true;
+    for(int i=0;i<s.length();i++){
+      char ch=s.charAt(i);
+      if((ch>='A'&&ch<='Z')||(ch>='a'&&ch<='z')){
+        if(lo){
+          if (ch>='A'&&ch<='Z')ch=(char)(ch+32);
+        } else {
+          if (ch>='a'&&ch<='z')ch=(char)(ch-32);
+        }
+        an+=ch;
+        lo=!lo;
+      } else{
+        an+=ch;
+      }
+    }
+    System.out.println(an);
+  }
+}
+
+//task4
+import java.util.Scanner;
+
+public class h4{
+  public static void main(String[] args){
+    Scanner in =new Scanner(System.in);
+    String p= in.nextLine();
+
+    boolean up=false,lo=false,di=false,sp=false;
+    for(int i=0;i<p.length();i++){
+      char ch= p.charAt(i);
+      if (ch>='A'&&ch<='Z')up=true;
+      else if(ch>='a'&&ch<='z') lo=true;
+      else if (ch>='0'&&ch<='9')di=true;
+      else if(ch!=' ') sp=true;
+    }
+    if (p.length()>=8&& up && lo &&di &&sp) 
+      System.out.println("True");
+    else 
+      System.out.println("False");
+  }
+}
+//task5
+import java.util.Scanner;
+
+public class h5{
+  public static void main(String[] args){
+    Scanner in =new Scanner(System.in);
+    String name= in.nextLine();
+    String pass =in.nextLine();
+
+    boolean f0und= false;
+
+    for (int i=0;i<name.length();i++){
+      for(int j=0;j<pass.length();j++){
+        if(name.charAt(i)==pass.charAt(j)){
+          int k=i,l=j;
+          String an1="",an2="";
+            while(k<name.length()&&l<pass.length()){
+              an1+=name.charAt(k);
+              an2+=pass.charAt(l);
+
+              k++;l++;
+          }
+            if (an1.equals(an2)&&(an1.length()==name.length())){
+              f0und=true;
+              break;
+            }
+        }
+      }
+    }
+    if(f0und)System.out.println("Invalid");
+    else {System.out.println("Valid");}
+  }
+}
+
