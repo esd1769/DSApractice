@@ -1,0 +1,843 @@
+CSE220: Data Structures (Lab)
+Fall 2024
+Lab Quiz - 06
+Duration: 30 Minutes
+
+Name: 
+ID:
+Section:
+
+Question 1 [15 Points]
+
+You are given an array of integers and values of  `x` and `y`. You need to create a new heap consisting of the numbers between xth lowest position and yth lowest position from the array. 	
+Note:
+You need to figure out which heap to use. 
+You are not allowed to use any direct sorting, searching on the array.
+You are not allowed to use any built-in functions except len()
+You can assume insert() and swim() functions are already implemented. You have to implement whatever else is needed.
+
+Sample Input:
+Sample Output:
+array = [11, 15, 8, 2, 31, 23]
+x = 2
+y = 5
+result = [8, 11, 15, 23]
+Explanation: 
+When the array is sorted [2, 8, 11, 15, 23, 31] the values are in lowest to highest order.  For each position of n we can say, If:- 
+
+
+   n = 1, Position-1 :    2  (1-st lowest)
+   n = 2, Position-2:     8  (2-nd lowest)
+   … … … … … … … 
+   n = 5, Position-5:   23  (5-th lowest)
+   n = 6, Position-6:   31  (6-th lowest)
+Here, 
+	x = 2,  2-nd lowest: 8  
+	y = 5,  5-th lowest:  23
+
+Numbers between 2nd and 5th lowest in the given array are: 8, 11, 15, 23. 
+So the new heap will have these values. .............. CSE220: Data Structures (Lab)
+Fall 2024
+Lab Quiz - 06
+Duration: 30 Minutes
+
+Name: 
+ID:
+Section:
+
+Question 1 [15 Points]
+
+You are given an array of integers and values of  `x` and `y`. You need to create a new heap consisting of the numbers between xth highest position and yth highest position from the array. 
+
+Note:
+You need to figure out which heap to use. 
+You are not allowed to use any direct sorting, searching on the array.
+You are not allowed to use any built-in functions except len()
+You can assume insert() and swim() functions are already implemented. You have to implement whatever else is needed.
+
+Sample Input:
+Sample Output:
+array = [11, 15, 8, 2, 31, 23]
+x = 2
+y = 5
+result = [23, 15, 11, 8]
+Explanation: 
+When the array is sorted  [31, 23, 15, 11, 8, 2] the values are in highest to lowest order
+For each position of n we can say, If:- 
+
+
+   n = 1 (Position-1) ,  1-st  highest:   31 
+   n = 2 (Position-2) ,  2-nd highest:   23
+   … … … … … … … … … … … … 
+   n = 5 (Position-5) ,  5-th  highest:   8
+   n = 6 (Position-6) ,  6-th  highest:   2
+Here, 
+	x = 2,  2-nd highest: 23
+	y = 5,  5-th  highest: 8
+
+Numbers between 2nd and 5th highest in the given array are: 23, 15, 11, 8
+So the new heap will have these values. ...............CSE220: Data Structures (Lab)
+Fall 2024
+Lab Quiz - 06
+Duration: 30 Minutes
+
+Name: 
+ID:
+Section:
+
+Question 1 [15 Points]
+
+In applications like batch task scheduling, it's vital to manage tasks based on their urgency, represented by priority levels where a lower number signifies higher urgency. You are given two arrays: one for task IDs and the other for corresponding priorities. These tasks must be organized using a data structure designed for efficient access to the most urgent tasks. However, only those tasks within a specified priority range, marked by lowPriority and highPriority, should be considered. Tasks falling outside this range should be excluded. 
+[Note: The most urgent tasks have lower priority numbers, so the data structure should focus on retrieving the minimum values within the range to correctly identify and process the highest-priority tasks]
+Note:
+You cannot use any built-in functions except len().
+Direct sorting or searching methods on the array are not allowed.
+Assume heap-related functions extractMin(), sink() are implemented and other necessary functions must be implemented.
+
+Sample Input:
+Sample Output:
+tasks = [101, 102, 103, 104, 105, 106, 107, 108, 109]
+priorities = [9, 3, 7, 1, 5, 8, 2, 6, 4]
+lowPriority = 3
+highPriority = 7
+result = [102, 109, 105, 108, 103]
+Explanation: 
+Given lowPriority = 3 and highPriority = 6, tasks with the third, fourth, fifth, and sixth highest priorities based on the priority scale are selected. This corresponds to the tasks with priorities 3, 4, 5, and 6 after selecting them by their priority, which are tasks 102, 105, 101, and 108.
+
+
+vvvvvvvvvvvvvvvvvvvCSE220: Data Structures (Lab)
+Fall 2024
+Lab Quiz - 06
+Duration: 30 Minutes
+
+Name: 
+ID:
+Section:
+
+Question 1 [15 Points]
+
+In applications like task scheduling, it's vital to manage tasks based on their urgency, represented by priority levels where a higher number signifies higher urgency. You are given two arrays: one for task IDs and the other for corresponding priorities. These tasks must be organized using a data structure designed for efficient access to the most urgent tasks. However, only those tasks within a specified priority range, marked by lowPriority and highPriority, should be considered. Tasks falling outside this range should be excluded. 
+[Note: The most urgent tasks have higher priority numbers, so the data structure should focus on retrieving the maximum values within the range to correctly identify and process the highest-priority tasks]
+Note:
+You cannot use any built-in functions except len().
+Direct sorting or searching methods on the array are not allowed.
+Assume heap-related functions extractMax(), sink() are implemented and other necessary functions must be implemented.
+
+Sample Input:
+Sample Output:
+tasks = [101, 102, 103, 104, 105, 106, 107, 108, 109]
+priorities = [9, 3, 7, 1, 5, 8, 2, 6, 4]
+lowPriority = 3
+highPriority = 7
+result = [103, 108, 105, 109, 102]
+Explanation: 
+Given lowPriority = 3 and highPriority = 6, tasks with the third, fourth, fifth, and sixth highest priorities based on the priority scale are selected. This corresponds to the tasks with priorities 7, 6, 5, and 4 after selecting them by their priority, which are tasks 103, 108, 105, and 109 respectively.
+
+
+vvvvvvvvvvvvvvvv Question 1 [15 Points]
+The Brac University Library is prioritizing books for purchase based on their demand and ratings by students. Two arrays are provided:
+
+arr1: Demand for books (number of requests).
+arr2: Average student ratings for the books (scale of 1 to 5).
+Books with higher priority scores should be purchased first. The purchase priority score for each book is calculated as:
+priority_score = demand × rating
+Your task is to:
+Create the purchase priority scores array using the above formula.
+Determine the appropriate type of heap required to prioritize books for purchase.
+Construct the heap using the priority scores.
+Extract the top 3 books to be purchased first based on their priority scores.
+Sample Input:
+Expected Output:
+arr1 = [50, 80, 40, 60, 52]
+arr2 = [4.5, 4.8, 4.0, 4.2, 4.7]
+Priority Scores: [225, 384, 160, 252, 245]
+Top Books: 384, 252, 245
+
+Note: Assume the extract() and sink() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+Question 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().
+
+
+
+
+ vvvvvvvvvvvQuestion 1 [15 Points]
+Brac University’s course rating system needs to prioritize courses based on difficulty and student satisfaction. Two arrays are provided:
+
+arr1: Difficulty levels (1 to 10, higher values = more difficult).
+arr2: Student satisfaction scores (1 to 10, higher values = more satisfied).
+Courses with lower overall ratings should be prioritized first for improvement. The overall rating for each course is calculated as:
+overall_rating = difficulty level × satisfaction score
+Your task is to:
+Create the overall ratings array using the above formula.
+Determine the appropriate type of heap needed to prioritize courses based on the task description.
+Construct the heap using the overall ratings.
+Extract the top 3 courses for improvement based on their overall ratings.
+Sample Input:
+Expected Output:
+arr1 = [7, 6, 5, 9, 8]
+arr2 = [6, 8, 7, 5, 4]
+Overall Ratings: [42, 48, 35, 45, 32]
+Top Courses: 32, 35, 42
+
+Note: Assume the insert() and swim() methods are already implemented and can be used directly. You need to implement other required methods and make the necessary method calls to complete the task. You are not allowed to use any built-in functions except len().vvvvvvvvvvvvvvvvvvvvv CSE220: Data Structures (Lab)
+Fall 2024
+Lab Quiz - 06
+Duration: 20 Minutes
+
+Name: 
+ID:
+Section:
+
+Question 1 [15 Points]
+You are given two arrays A and B, both consisting of n integers. Starting from index 0, for each element in B, you must add it to the current smallest integer in A. After processing all elements in B, return array A sorted in non-decreasing order.
+
+You are only allowed to use the insert() and extract() method from MinHeap/MaxHeap. Do not use any other functions (for example, sort()).
+
+def add_arrays(n, A, B):
+	//to do
+
+Input
+Output
+Explanation
+n = 3
+A = [1, 3, 5]
+B = [2, 4, 6]
+A = [5, 7, 9]
+Initially, A=[1, 3, 5], B = [2, 4, 6]
+Add B[0]=2 to the smallest integer A[0]=1. A becomes [3, 3, 5].
+Add B[1]=4 to the smallest integer A[0]=3. A becomes [7, 3, 5].
+Add B[2]=6 to the smallest integer A[2]=3. A becomes [7, 9, 5].
+Finally, make A non-decreasing to get [5,7,9].
+
+
+vvvvvvvvvvvvvCSE220: Data Structures (Lab)
+Fall 2024
+Lab Quiz - 06
+Duration: 20 Minutes
+
+Name: 
+ID:
+Section:
+
+Question 1 [15 Points]
+You are given two arrays A and B, both consisting of n integers. Starting from index 0, for each element in B, you must subtract it from the current largest integer in A. After processing all elements in B, return array A sorted in non-increasing order.
+
+You are only allowed to use the insert() and extract() method from MinHeap/MaxHeap. Do not use any other functions (for example, sort()).
+
+def sub_arrays(n, A, B):
+	//to do
+
+Input
+Output
+Explanation
+n = 3
+A = [1, 3, 5]
+B = [2, 4, 6]
+A = [1, -1, -3]
+Initially, A=[1, 3, 5], B = [2, 4, 6]
+Sub B[0]=2 from the largest integer A[2]=5. A becomes [1, 3, 3].
+Sub B[1]=4 from the largest integer A[2]=3. A becomes [1, 3, -1].
+Sub B[2]=6 from the largest integer A[1]=3. A becomes [1, -3, -1].
+Finally, make A non-increasing to get [1, -1, -3].
+
+
+vvvvvvvvvvvvvvvvvvv CSE220: Data Structures (Lab)
+Fall 2024
+Lab Quiz - 06
+Duration: 30 Minutes
+
+Name: 
+ID:
+Section:
+
+Question 1 [15 Points]
+
+You are given an array of integers and a number k. Your task is to find the sum of top k largest elements from the list.
+
+Note:
+You need to figure out which heap to use. 
+You are not allowed to use any direct sorting, searching on the array.
+You are not allowed to use any built-in functions except len()
+You can assume insert() and swim() functions are already implemented. You have to implement whatever else is needed.
+
+Sample Input:
+Sample Output:
+array = [11, 15, 8, 2, 31, 23]
+k = 3
+
+
+sum = 69
+Explanation: 
+The array is  [11, 15, 8, 2, 31, 23] and the top k largest elements are [31,23,15].  So the sum will be 31+23+15 = 69
+ 
+
+
+vvvvvvvvvvvvvvvvvvvCSE220: Data Structures (Lab)
+Fall 2024
+Lab Quiz - 06
+Duration: 30 Minutes
+
+Name: 
+ID:
+Section:
+
+Question 1 [15 Points]
+
+You are given an array of integers and a number k. Your task is to find the product of top k lowest elements from the list. 
+
+Note:
+You need to figure out which heap to use. 
+You are not allowed to use any direct sorting, searching on the array.
+You are not allowed to use any built-in functions except len()
+You can assume insert() and swim() functions are already implemented. You have to implement whatever else is needed.
+
+Sample Input:
+Sample Output:
+array = [11, 15, 8, 2, 31, 23]
+k = 3
+
+
+product = 176
+Explanation: 
+The array is  [11, 15, 8, 2, 31, 23] and the top k lowest elements are [2, 8, 11].  So the product will be 2*8*11 = 176
+ 
+
+
+
+
+
+
+vvvvvvvvvvvvvvvvvCSE220: Data Structures (Lab)
+Fall 2024
+Lab Quiz - 06
+Duration: 30 Minutes
+
+Name: 
+ID:
+Section:
+
+
+Question 1 [15 Points]
+You are given several buckets with water levels represented by a min-heap. In each operation, you choose the smallest non-zero water level, denoted by x, and remove x units of water from all non-empty buckets.  Your task is to determine the minimum number of operations required to empty all the buckets. You need to write the extract_min(), sink(), and the minimum_operation_find() methods /functions.
+Sample Input:
+Sample Output:
+heap = [1, 5, 9, 10, 12]
+5
+
+
+Explanation
+Heap Array
+Heap Visual
+Heap Array
+Heap Visual
+Initial Stage:
+
+[1, 5, 9, 10, 12]
+
+
+        1
+       / \
+      5   9
+     / \
+  10  12
+Step 3: 
+Extracted the minimum value 4
+[5, 7, 0, 0, 0]
+
+Subtracted  the minimum value (4) from each non-zero value
+[ 1, 3, 0, 0, 0]
+        1
+       / \
+      3   0
+     / \
+    0   0
+Step 1: 
+Extracted the minimum value 1
+[ 5, 9, 10, 12, 0]
+
+Subtracted the minimum value (1) from each non-zero value 
+[4, 8, 9, 11, 0]
+        4
+       / \
+      8   9
+     / \
+   11   0
+Step 4: 
+Extracted the minimum value 1
+[ 3, 0, 0, 0, 0]
+ 
+Subtracted  the minimum value (1) from each non-zero value 
+[ 2, 0, 0, 0, 0]
+        2
+       / \
+      0   0
+     / \
+    0   0
+Step 2: 
+Extracted the minimum value 4
+[8, 9, 11, 0, 0]
+
+Subtracted  the minimum value (4) from each non-zero value 
+[ 4, 5, 7, 0, 0]
+        4
+      /    \
+     5     7
+    / \     / 
+   0  0  0  
+Step 5: 
+Extracted the minimum value 2 
+[ 0, 0, 0, 0, 0]
+
+
+
+        0
+       / \
+      0   0
+     / \
+    0   0
+
+
+CSE220: Data Structures (Lab)
+Fall 2024
+Lab Quiz - 06
+Duration: 30 Minutes
+
+Name: 
+ID:
+Section:
+
+Question 1 [15 Points]
+You are given several magical jars, each filled with a certain amount of liquid, represented by a min-heap. In each operation, the smallest non-zero liquid level, denoted by x, is extracted, and the liquid level in each non-empty jar is divided by x (using floor division). When a jar’s liquid level becomes 0, it is considered empty. Your task is to determine the minimum number of operations required to completely empty all the jars.
+You just need to write the extract_min(), sink(), and the minimum_operation_find() methods/functions.
+Sample Input:
+Sample Output:
+heap = [2, 3, 5, 20, 100]
+5
+
+
+Explanation
+Heap Array
+Heap Visual
+Heap Array
+Heap Visual
+Initial Stage:
+
+[2, 3, 5, 20, 100]
+        2
+       / \
+      3   5
+     / \
+   20  100
+Step 3: 
+Extracted the minimum value 2.
+[10, 50, 0, 0, 0]
+
+Performed floor division by the minimum value 2.
+[5, 25 0, 0, 0]
+         5
+       /    \
+     25    0
+     /  \
+    0    0
+Step 1: 
+Extracted the minimum value 2
+[3, 5, 20, 100, 0]
+
+Performed floor division by the minimum value 2.
+[1, 2, 10, 50, 0]
+        1
+       / \
+      2   10
+     / \
+   50   0
+Step 4: 
+Extracted the minimum value 5.
+ 
+Performed floor division by the minimum value 5.
+[ 5, 0, 0, 0, 0]
+        5
+       / \
+      0   0
+     / \
+    0   0
+Step 2: 
+Extracted the minimum value 1
+[2, 10, 50, 0, 0]
+
+Performed floor division by the minimum value 1.
+[2, 10, 50, 0, 0]
+         2
+       /    \
+     10   50
+     /  \
+    0    0
+Step 5: 
+Extracted the minimum value 5
+[ 0, 0, 0, 0, 0]
+        0
+       / \
+      0   0
+     / \
+    0   0
+
+
+......first explain the question,then input output,then short approach and code in java....no builtin 
+
+
+
+
+
+
